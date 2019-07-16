@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">InstaHappy</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="select_a_category">Select a category</string>
+    <string name="kids">Kids</string>
+    <string name="pets">Pets</string>
+    <string name="nature">Nature</string>
+    <string name="love">Love</string>
+    <string name="error_title">Oops, sorry!</string>
+    <string name="error_message">An error occurred. Please try again.</string>
+    <string name="close_dialog_title">Close</string>
+    <string name="error_msg">Sorry, could not display photos. /n The server took too long to respond.</string>
+    <string name="error_msg_no_internet">No internet</string>
+    <string name="error_msg_timeout">Took to long to respond.</string>
+    <string name="error_msg_unknown">An unknown error occurred.</string>
+    <string name="retry">Retry</string>
+    <string name="photo_image">photo image</string>
+    <string name="by_author">By author</string>
+    <string name="by_concat_string">By</string>
+    <string name="on_Unsplash_concat">on Unsplash</string>
+</resources>
