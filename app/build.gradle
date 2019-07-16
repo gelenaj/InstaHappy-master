@@ -17,6 +17,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "version"
+    productFlavors{
+        free{
+            dimension "version"
+            applicationId "com.example.instahappy.free"
+        }
+        paid{
+            dimension "version"
+            applicationId "com.example.instahappy.paid"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
