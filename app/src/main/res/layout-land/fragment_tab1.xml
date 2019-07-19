@@ -1,61 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab1_framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab1_framelayout"
-
     tools:context=".fragments.Tab1Fragment">
 
-    <LinearLayout
-        style="?android:buttonBarStyle"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="4.0">
+        android:background="@android:color/white"
+        android:fillViewport="true">
 
-        <TextView
+        <LinearLayout
+            style="?android:buttonBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="0"
-            android:fontFamily="cursive"
-            android:gravity="center_horizontal"
-            android:text="@string/select_a_category"
-            android:textSize="30sp" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/kids_button_tab2"
-            style="@style/MainTab1Button"
-            android:layout_width="300dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:text="@string/kids" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="cursive"
+                android:gravity="center_horizontal"
+                android:text="@string/select_a_category"
+                android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/pets_button_tab2"
-            style="@style/MainTab1Button"
-            android:layout_width="300dp"
-            android:layout_weight="1"
-            android:text="@string/pets" />
+            <Button
+                android:id="@+id/kids_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/kids" />
 
-        <Button
-            android:id="@+id/nature_button"
-            style="@style/MainTab1Button"
-            android:layout_width="300dp"
-            android:layout_weight="1"
-            android:text="@string/nature" />
+            <Button
+                android:id="@+id/pets_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/pets" />
 
-        <Button
-            android:id="@+id/love_button"
-            style="@style/MainTab1Button"
-            android:layout_width="300dp"
-            android:layout_weight="1"
-            android:text="@string/love" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/nature_button"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/nature" />
+
+            <Button
+                android:id="@+id/love_button"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/love" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

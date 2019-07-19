@@ -9,26 +9,25 @@
     tools:context=".fragments.Tab1Fragment">
 
     <LinearLayout
+        android:id="@+id/linear_layout"
         style="?android:buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
-        android:weightSum="4.0"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="4.0">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/kids_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
+                android:layout_height="90dp"
                 android:text="@string/kids"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,12 +44,13 @@
                 android:layout_height="23dp"
                 android:layout_marginStart="8dp"
                 android:adjustViewBounds="true"
+                android:contentDescription="TODO"
                 android:elevation="2dp"
                 android:foregroundGravity="top"
                 android:scaleType="center"
                 android:src="@drawable/ic_more_horiz_24dp"
-                android:visibility="visible"
 
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/kids_button_tab2"
                 app:layout_constraintEnd_toEndOf="@id/kids_button_tab2"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -58,23 +58,23 @@
                 app:layout_constraintTop_toTopOf="@+id/kids_button_tab2"
                 app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintWidth_percent=".7"
-                tools:srcCompat="@drawable/ic_more_horiz_24dp"
-                android:contentDescription="TODO" />
+                tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
 
         </android.support.constraint.ConstraintLayout>
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/pets_button_tab2"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-            style="@style/MainTab1Button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/pets" />
+            <Button
+                android:id="@+id/pets_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:text="@string/pets"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/guideline2"
@@ -82,18 +82,20 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.18" />
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="59dp"
                 android:layout_height="23dp"
                 android:layout_marginStart="8dp"
                 android:adjustViewBounds="true"
+                android:contentDescription="TODO"
                 android:elevation="2dp"
                 android:foregroundGravity="top"
                 android:scaleType="center"
                 android:src="@drawable/ic_more_horiz_24dp"
-                android:visibility="visible"
 
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/pets_button_tab2"
                 app:layout_constraintEnd_toEndOf="@id/pets_button_tab2"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -101,24 +103,23 @@
                 app:layout_constraintTop_toTopOf="@+id/pets_button_tab2"
                 app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintWidth_percent=".7"
-                tools:srcCompat="@drawable/ic_more_horiz_24dp"
-                android:contentDescription="TODO" />
+                tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
         </android.support.constraint.ConstraintLayout>
+
         <android.support.constraint.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/nature_button_tab2"
-
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
+                android:layout_height="90dp"
                 android:text="@string/nature"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <android.support.constraint.Guideline
                 android:id="@+id/guideline3"
                 android:layout_width="0dp"
@@ -146,48 +147,84 @@
                 tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
         </android.support.constraint.ConstraintLayout>
+
         <android.support.constraint.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="0">
 
             <Button
                 android:id="@+id/love_button_tab2"
-
                 style="@style/MainTab1Button"
-
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
                 android:text="@string/love"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="59dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="8dp"
-            android:adjustViewBounds="true"
-            android:elevation="2dp"
-            android:foregroundGravity="top"
-            android:scaleType="center"
-            android:src="@drawable/ic_more_horiz_24dp"
-            android:visibility="visible"
 
-            app:layout_constraintBottom_toBottomOf="@+id/love_button_tab2"
-            app:layout_constraintEnd_toEndOf="@id/love_button"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/love_button_tab2"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent=".7"
-            tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="59dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="23dp"
+                android:adjustViewBounds="true"
+                android:elevation="2dp"
+                android:foregroundGravity="top"
+                android:scaleType="center"
+                android:src="@drawable/ic_more_horiz_24dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/fab1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintWidth_percent=".7"
+                tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
-    </android.support.constraint.ConstraintLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabCustomSize="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/fab_gradient_library"
+                app:elevation="2dp"
+                android:padding="0dp"
+                android:scaleType="fitXY"
+                app:useCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.976"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/love_button_tab2" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            app:layout_dodgeInsetEdges="bottom"
-            android:src="@drawable/ic_add_a_photo_24dp" />
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginEnd="22dp"
+                android:layout_marginBottom="77dp"
+                app:elevation="2dp"
+                android:padding="0dp"
+                android:scaleType="fitXY"
+                app:layout_anchor="@id/fab"
+                app:backgroundTint="@android:color/transparent"
+                app:borderWidth="0dp"
+                android:src="@drawable/fab_gradient_camera"
+                app:layout_anchorGravity="bottom|right|end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:useCompatPadding="true"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        </android.support.constraint.ConstraintLayout>
+
+
     </LinearLayout>
 </FrameLayout>

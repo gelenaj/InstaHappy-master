@@ -4,4 +4,6 @@
     <color name="colorPrimaryLight">#FE91F5</color>
     <color name="colorPrimaryDark">#962E91</color>
     <color name="colorAccent">#61caa7</color>
+    <color name="fabGradientStart">@color/colorPrimary</color>
+    <color name="fabGradientEnd">@color/colorPrimaryLight</color>
 </resources>
