@@ -2,7 +2,7 @@
 
     <application>
         <activity
-            android:name="com.example.instahappy.free.MainActivity"
+            android:name="com.example.instahappy.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/NoActionBar"></activity>
     </application>
