@@ -1,4 +1,4 @@
-package com.example.instahappy.fragments.paid;
+package com.example.instahappy.paid;
 
 import android.content.Intent;
 import android.net.Uri;

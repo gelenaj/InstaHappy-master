@@ -38,8 +38,8 @@ public class Tab2Fragment extends Fragment{
      * @return A new instance of fragment Tab2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static com.example.instahappy.fragments.Tab2Fragment newInstance(String param1, String param2) {
-        com.example.instahappy.fragments.Tab2Fragment fragment = new com.example.instahappy.fragments.Tab2Fragment();
+    public static Tab2Fragment newInstance(String param1, String param2) {
+        Tab2Fragment fragment = new Tab2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
