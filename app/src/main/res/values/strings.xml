@@ -8,8 +8,8 @@
     <string name="pets">Pets</string>
     <string name="nature">Nature</string>
     <string name="love">Love</string>
-    <string name="error_title">Oops, sorry!</string>
-    <string name="error_message">An error occurred. Please try again.</string>
+    <string name="notification_title">Oops, sorry!</string>
+    <string name="notification_message">An error occurred. Please try again.</string>
     <string name="close_dialog_title">Close</string>
     <string name="error_msg">Sorry, could not display photos. /n The server took too long to respond.</string>
     <string name="error_msg_no_internet">No internet</string>
