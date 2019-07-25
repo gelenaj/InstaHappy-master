@@ -1,6 +1,7 @@
 package com.example.instahappy.fragments;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +11,19 @@ import android.widget.Toast;
 
 import com.example.instahappy.R;
 
+import java.net.URI;
+
 
 public class Tab2Fragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final int REQUEST_TAKE_PHOTO = 0;
+    public static final int MEDIA_TYPE_IMAGE = 1;
+
+    private URI mMediaUri;
+    String currentPhotoPath;
 
     public Tab2Fragment() {
         // Required empty public constructor
@@ -30,8 +38,8 @@ public class Tab2Fragment extends Fragment{
      * @return A new instance of fragment Tab2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Tab2Fragment newInstance(String param1, String param2) {
-        Tab2Fragment fragment = new Tab2Fragment();
+    public static com.example.instahappy.fragments.Tab2Fragment newInstance(String param1, String param2) {
+        com.example.instahappy.fragments.Tab2Fragment fragment = new com.example.instahappy.fragments.Tab2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,13 +68,17 @@ public class Tab2Fragment extends Fragment{
         Button petsBtn = rootView.findViewById(R.id.pets_button_tab2);
         Button natureBtn = rootView.findViewById(R.id.nature_button_tab2);
         Button loveBtn = rootView.findViewById(R.id.love_button_tab2);
+        FloatingActionButton camera_fab = rootView.findViewById(R.id.camera_fab);
 
         kidsBtn.setOnClickListener(v -> Toast.makeText(getActivity(),"Please upgrade",Toast.LENGTH_LONG).show());
         petsBtn.setOnClickListener(v -> Toast.makeText(getActivity(),"Please upgrade",Toast.LENGTH_LONG).show());
 
         natureBtn.setOnClickListener(v -> Toast.makeText(getActivity(),"Please upgrade",Toast.LENGTH_LONG).show());
         loveBtn.setOnClickListener(v -> Toast.makeText(getActivity(),"Please upgrade",Toast.LENGTH_LONG).show());
+
+
         return rootView;
     }
+
 
 }
