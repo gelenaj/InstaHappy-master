@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "566653840462",
+    "firebase_url": "https://instahappy-39684-fdc43.firebaseio.com",
+    "project_id": "instahappy-39684",
+    "storage_bucket": "instahappy-39684.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566653840462:android:e83a9f5be3c47281",
+        "android_client_info": {
+          "package_name": "com.example.instahappy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566653840462-dmovcijjf3ngh23gcf98849lcho9b774.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.instahappy",
+            "certificate_hash": "c9981f58378539a69b2ce125bbbfe41e21f1267d"
+          }
+        },
+        {
+          "client_id": "566653840462-dm0gdni1smggpp0nkfer7lm283pihsqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmbnJDCo6BwGeG1Oh4LJrSfryQ6dyEkmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566653840462-dm0gdni1smggpp0nkfer7lm283pihsqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

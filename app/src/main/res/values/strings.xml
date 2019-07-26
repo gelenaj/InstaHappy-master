@@ -20,4 +20,6 @@
     <string name="by_author">By author</string>
     <string name="by_concat_string">By</string>
     <string name="on_Unsplash_concat">on Unsplash</string>
+    <string name="error_title">purchase app</string>
+    <string name="error_message">need to purchase</string>
 </resources>
