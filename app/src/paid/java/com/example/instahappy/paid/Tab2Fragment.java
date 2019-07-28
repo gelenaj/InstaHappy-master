@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
@@ -31,7 +32,7 @@ public class Tab2Fragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     public static final int REQUEST_TAKE_PHOTO = 0;
     public static final int MEDIA_TYPE_IMAGE = 1;
-
+    private CoordinatorLayout coordinator;
     private URI mMediaUri;
     String currentPhotoPath;
 
@@ -78,10 +79,11 @@ public class Tab2Fragment extends Fragment {
         Button natureBtn = rootView.findViewById(R.id.nature_button_tab2);
         Button loveBtn = rootView.findViewById(R.id.love_button_tab2);
         FloatingActionButton camera_fab = rootView.findViewById(R.id.camera_fab);
+        coordinator = rootView.findViewById(R.id.coordinatorLayout);
 
         kidsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
-        petsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
 
+        petsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
         natureBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
         loveBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
 
