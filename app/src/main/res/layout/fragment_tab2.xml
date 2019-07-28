@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout_tab2"
             android:orientation="vertical"
             android:layout_marginLeft="8dp"
@@ -31,7 +31,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="0dp" />
 
-                <android.support.constraint.Guideline
+                <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -70,7 +70,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2"
                     tools:layout_editor_absoluteX="0dp" />
 
-                <android.support.constraint.Guideline
+                <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -159,9 +159,9 @@
                     app:layout_constraintWidth_percent=".7"
                     tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/image_gallery_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
             app:useCompatPadding="true" />
 
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/camera_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,5 +191,5 @@
             app:elevation="2dp"
             app:fabCustomSize="56dp"
             app:useCompatPadding="true" />
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

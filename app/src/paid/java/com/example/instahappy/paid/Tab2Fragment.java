@@ -5,9 +5,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,7 @@ import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Tab2Fragment extends Fragment{
+public class Tab2Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,7 +49,7 @@ public class Tab2Fragment extends Fragment{
      */
     // TODO: Rename and change types and number of parameters
     public static com.example.instahappy.paid.Tab2Fragment newInstance(String param1, String param2) {
-        com.example.instahappy.paid.Tab2Fragment fragment = new com.example.instahappy.paid.Tab2Fragment();
+        com.example.instahappy.paid.Tab2Fragment fragment = new com.example.instahappy.paid. Tab2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -99,7 +101,7 @@ public class Tab2Fragment extends Fragment{
                     // Continue only if the File was successfully created
                     if (photoFile != null) {
                         Uri photoURI = FileProvider.getUriForFile(getActivity(),
-                                "com.example.instahappy",
+                                "com.example.instahappy.paid",
                                 photoFile);
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                         startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 
 
-public class AdaptiveImageView extends android.support.v7.widget.AppCompatImageView {
+public class AdaptiveImageView extends androidx.appcompat.widget.AppCompatImageView {
     private int defaultWidth = 0;
     private int defaultHeight = 0;
 
