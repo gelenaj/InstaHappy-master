@@ -49,4 +49,9 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>
+    <string name="welcome_user_msg">Welcome</string>
+    <!--<string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>-->
+    <!--<string name="server_client_id">747970262562-m896t7cdr0mt9pli9ij6gah1av1kd85d.apps.googleusercontent.comm</string>-->
+    <!--<string name="server_client_id">747970262562-s61irtqp0qi3lt0ra9i5imfol845a742.apps.googleusercontent.com</string>-->
 </resources>
