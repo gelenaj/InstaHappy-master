@@ -50,7 +50,7 @@ public class Tab2Fragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static com.example.instahappy.paid.Tab2Fragment newInstance(String param1, String param2) {
-        com.example.instahappy.paid.Tab2Fragment fragment = new com.example.instahappy.paid. Tab2Fragment();
+        com.example.instahappy.paid.Tab2Fragment fragment = new com.example.instahappy.paid.Tab2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,7 +68,11 @@ public class Tab2Fragment extends Fragment {
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,6 +83,8 @@ public class Tab2Fragment extends Fragment {
         Button natureBtn = rootView.findViewById(R.id.nature_button_tab2);
         Button loveBtn = rootView.findViewById(R.id.love_button_tab2);
         FloatingActionButton camera_fab = rootView.findViewById(R.id.camera_fab);
+
+        FloatingActionButton gallery_fab = rootView.findViewById(R.id.image_gallery_fab);
         coordinator = rootView.findViewById(R.id.coordinatorLayout);
 
         kidsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
@@ -86,6 +92,14 @@ public class Tab2Fragment extends Fragment {
         petsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
         natureBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
         loveBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
+
+        gallery_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         camera_fab.setOnClickListener(new View.OnClickListener() {
             @Override

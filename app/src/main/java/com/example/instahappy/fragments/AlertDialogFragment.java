@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.instahappy.R;
-import com.example.instahappy.free.SigninActivity;
+
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;

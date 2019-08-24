@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab2_framelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/constraintLayout_tab2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+            <Button
+                android:id="@+id/kids_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/kids"
+
+                app:layout_constraintBottom_toTopOf="@+id/pets_button_tab2"
+
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.25" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="59dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="TODO"
+                    android:elevation="2dp"
+                    android:foregroundGravity="top"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_more_horiz_24dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/kids_button_tab2"
+                    app:layout_constraintEnd_toEndOf="@id/kids_button_tab2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/kids_button_tab2"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent=".7"
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+
+            <Button
+                android:id="@+id/pets_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/pets"
+
+                app:layout_constraintBottom_toTopOf="@+id/nature_button_tab2"
+                app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="132dp"
+                app:layout_constraintGuide_percent="0.25"
+                />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="59dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="TODO"
+                    android:elevation="2dp"
+                    android:foregroundGravity="top"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_more_horiz_24dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/pets_button_tab2"
+                    app:layout_constraintEnd_toEndOf="@id/pets_button_tab2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pets_button_tab2"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent=".7"
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+
+            <Button
+                android:id="@+id/nature_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/nature"
+
+                app:layout_constraintBottom_toTopOf="@+id/love_button_tab2"
+                app:layout_constraintTop_toBottomOf="@+id/pets_button_tab2"
+                tools:layout_editor_absoluteX="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="59dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="2dp"
+                    android:foregroundGravity="top"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_more_horiz_24dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@id/nature_button_tab2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/nature_button_tab2"
+                    app:layout_constraintWidth_percent=".7"
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+
+            <Button
+                android:id="@+id/love_button_tab2"
+                style="@style/MainTab1Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/love"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nature_button_tab2" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="59dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="23dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="2dp"
+                    android:foregroundGravity="top"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_more_horiz_24dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/love_button_tab2"
+                    app:layout_constraintEnd_toEndOf="@id/love_button_tab2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/love_button_tab2"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintWidth_percent=".7"
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/image_gallery_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            android:padding="0dp"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_menu_gallery"
+            app:backgroundTint="@color/colorPrimaryLight"
+            app:elevation="2dp"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="true" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/camera_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:padding="0dp"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_menu_camera"
+            app:backgroundTint="@color/colorPrimaryLight"
+            app:borderWidth="0dp"
+            app:elevation="2dp"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="true" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
