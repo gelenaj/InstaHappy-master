@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="collectionIds">
+        <item name="kidsCoId">4326221</item>
+        <item name="petCoId">6785993</item>
+        <item name="natureCoId">6786014</item>
+        <item name="loveCoId">6816268</item>
+    </array>
+</resources>

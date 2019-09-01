@@ -1,11 +1,16 @@
-package com.example.instahappy;
+package com.example.instahappy.ui;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.instahappy.R;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
@@ -15,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.instahappy.adapters.SlidingImageAdapter;
 import com.example.instahappy.api.ApiClient;
@@ -51,6 +57,15 @@ public class CollectionsActivity extends AppCompatActivity  {
 
         btnRetry.setOnClickListener(view -> LoadJson(collectionsId));
         Log.d("CollectionsActivity**", String.valueOf(collectionsId));
+
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(myToolbar);
+
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 
 

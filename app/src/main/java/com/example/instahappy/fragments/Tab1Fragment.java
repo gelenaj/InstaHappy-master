@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import com.example.instahappy.CollectionsActivity;
+
 import com.example.instahappy.R;
 import com.example.instahappy.model.Constants;
+import com.example.instahappy.ui.CollectionsActivity;
 
 public class Tab1Fragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";

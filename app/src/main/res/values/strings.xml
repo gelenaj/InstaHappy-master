@@ -18,7 +18,7 @@
     <string name="retry">Retry</string>
     <string name="photo_image">photo image</string>
     <string name="by_author">By author</string>
-    <string name="by_concat_string">By</string>
+    <string name="by_concat_string">By </string>
     <string name="on_Unsplash_concat">on Unsplash</string>
     <string name="error_title">purchase app</string>
     <string name="error_message">need to purchase</string>
@@ -40,6 +40,18 @@
     <string name="menu_send">Send</string>
     <string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>
     <string name="welcome_user_msg">Welcome</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="or_connect_with">Or connect with</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="make_me_happy">Make me happy</string>
 
     <!--<string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>-->
     <!--<string name="server_client_id">747970262562-m896t7cdr0mt9pli9ij6gah1av1kd85d.apps.googleusercontent.comm</string>-->
