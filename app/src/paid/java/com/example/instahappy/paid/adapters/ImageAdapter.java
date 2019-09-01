@@ -15,10 +15,8 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -29,7 +27,6 @@ import com.example.instahappy.paid.MediaInfo;
 import com.example.instahappy.paid.Upload;
 import com.example.instahappy.paid.photos.Photo;
 import com.squareup.picasso.Picasso;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
@@ -40,11 +37,8 @@ import static androidx.core.content.ContextCompat.getSystemService;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
     private LayoutInflater mInflater;
     public ArrayList<Photo> images;
-
     public ImageAdapter(ArrayList<Photo> items) {
         images = items;
-
-
     }
 
     @NonNull

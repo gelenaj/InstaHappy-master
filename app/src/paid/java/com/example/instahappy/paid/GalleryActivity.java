@@ -17,7 +17,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +24,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.instahappy.R;
 import com.example.instahappy.paid.adapters.ImageAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,7 +37,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
 import java.io.File;
 
 public class GalleryActivity extends AppCompatActivity {
@@ -68,29 +65,21 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_upload);
-        //mPresenter = new ImagePresenter(this);
         imageView = findViewById(R.id.image);
-        //mProgressBar=findViewById(R.id.progressBar);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
         openFileChooser();
         mProgressBar = findViewById(R.id.progress_bar);
-        
         mUploadButton = findViewById(R.id.uploadBtn);
-        
         mUploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
                 upload();
             }
         });
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("uploads");
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        //mDatabaseRef = database.getReference("uploads");
-        myRef.setValue("Hello, World!");
-
-
+        mDatabaseRef = database.getReference("uploads");
     }
 
     @Override

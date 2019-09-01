@@ -12,15 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
-
-                android:id="@+id/constraintLayout_tab2"
+            android:id="@+id/constraintLayout_tab2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-                android:orientation="vertical">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/kids_button_tab2"
@@ -28,9 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/kids"
-
                 app:layout_constraintBottom_toTopOf="@+id/pets_button_tab2"
-
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -47,7 +43,7 @@
                     android:layout_height="23dp"
                     android:layout_marginStart="8dp"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
                     android:foregroundGravity="top"
                     android:scaleType="center"
@@ -68,7 +64,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/pets"
-
                 app:layout_constraintBottom_toTopOf="@+id/nature_button_tab2"
                 app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2"
                 tools:layout_editor_absoluteX="0dp" />
@@ -79,8 +74,7 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="132dp"
-                app:layout_constraintGuide_percent="0.25"
-                />
+                app:layout_constraintGuide_percent="0.25" />
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -88,7 +82,7 @@
                     android:layout_height="23dp"
                     android:layout_marginStart="8dp"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
                     android:foregroundGravity="top"
                     android:scaleType="center"
@@ -109,7 +103,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/nature"
-
                 app:layout_constraintBottom_toTopOf="@+id/love_button_tab2"
                 app:layout_constraintTop_toBottomOf="@+id/pets_button_tab2"
                 tools:layout_editor_absoluteX="0dp" />
@@ -130,7 +123,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/nature_button_tab2"
                     app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp"
+                    android:contentDescription="@string/menu_icon" />
 
             <Button
                 android:id="@+id/love_button_tab2"
@@ -138,7 +132,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/love"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nature_button_tab2" />
 
@@ -162,7 +155,8 @@
                     app:layout_constraintTop_toTopOf="@id/love_button_tab2"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
+                    tools:srcCompat="@drawable/ic_more_horiz_24dp"
+                    android:contentDescription="@string/menu_icon" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -182,7 +176,6 @@
             app:elevation="2dp"
             app:maxImageSize="24dp"
             app:useCompatPadding="true" />
-
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/camera_fab"

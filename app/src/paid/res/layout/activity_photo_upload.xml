@@ -13,38 +13,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="wrap_content"/>
-    <!--<TextView-->
-    <!--android:id="@+id/empty"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:layout_marginStart="8dp"-->
-    <!--android:layout_marginLeft="8dp"-->
-    <!--android:layout_marginTop="8dp"-->
-    <!--android:layout_marginEnd="8dp"-->
-    <!--android:layout_marginRight="8dp"-->
-    <!--android:gravity="start"-->
-    <!--android:textAlignment="textStart"-->
-    <!--android:textAppearance="?android:textAppearanceMedium"-->
-    <!--app:fontFamily="serif"-->
-    <!--app:layout_constraintBottom_toBottomOf="@+id/recycle"-->
-    <!--app:layout_constraintEnd_toEndOf="@+id/recycle"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="@+id/recycle"-->
-    <!--tools:text="@string/no_data" />-->
-
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,17 +36,14 @@
 
         <EditText
             android:id="@+id/edit_text_file_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:hint="Enter picture name"
+            android:hint="@string/enter_picture_name"
             android:inputType="text"
             app:layout_constraintEnd_toStartOf="@+id/uploadBtn"
-            tools:layout_editor_absoluteY="688dp" />
-
-
-            android:layout_height="wrap_content"/>
-
+            tools:layout_editor_absoluteY="688dp"
+            android:importantForAutofill="no" />
 
         <ImageView
             android:id="@+id/uploadBtn"
@@ -82,8 +53,7 @@
             android:background="@color/colorAccent"
             android:src="@drawable/upload__icon"
             app:layout_constraintTop_toBottomOf="@+id/image"
-            tools:layout_editor_absoluteX="206dp" />
-
+            tools:layout_editor_absoluteX="206dp"
+            android:contentDescription="@string/upload_icon" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

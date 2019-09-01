@@ -1,9 +1,7 @@
 package com.example.instahappy.api;
 
 import com.example.instahappy.model.Photo;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;

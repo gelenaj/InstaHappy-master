@@ -10,7 +10,6 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
@@ -51,13 +50,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
-
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="@+id/kids_button_tab2"
                     app:layout_constraintEnd_toEndOf="@id/kids_button_tab2"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -66,19 +63,15 @@
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
                     tools:srcCompat="@drawable/ic_more_horiz_24dp" />
-
-
                 <Button
                     android:id="@+id/pets_button_tab2"
                     style="@style/MainTab1Button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-
                     android:elevation="2dp"
                     android:text="@string/pets"
                     app:layout_constraintBottom_toTopOf="@+id/nature_button_tab2"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2" />
@@ -95,13 +88,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
-
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="@+id/pets_button_tab2"
                     app:layout_constraintEnd_toEndOf="@id/pets_button_tab2"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -138,9 +129,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
-
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
@@ -148,7 +138,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/nature_button_tab2"
                     app:layout_constraintEnd_toEndOf="@+id/nature_button_tab2"
                     app:layout_constraintHorizontal_bias="0.1"
-
                     app:layout_constraintTop_toTopOf="@id/nature_button_tab2"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
@@ -162,7 +151,6 @@
                     android:layout_height="80dp"
                     android:elevation="2dp"
                     android:text="@string/love"
-
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -173,12 +161,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/menu_icon"
                     android:elevation="2dp"
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="@+id/love_button_tab2"
                     app:layout_constraintEnd_toEndOf="@+id/love_button_tab2"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -187,8 +174,6 @@
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
                     tools:srcCompat="@drawable/ic_more_horiz_24dp" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
@@ -207,8 +192,6 @@
             app:elevation="2dp"
             app:fabCustomSize="56dp"
             app:useCompatPadding="true" />
-                    
-        
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/camera_fab"

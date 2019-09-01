@@ -8,17 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.instahappy.R;
 import com.example.instahappy.model.Photo;
-
 import java.util.List;
 
 public class SlidingImageAdapter extends PagerAdapter {
-
     private final Context context;
     private final List<Photo> imageUrls;
 
@@ -27,11 +24,9 @@ public class SlidingImageAdapter extends PagerAdapter {
         return imageUrls.size();
     }
 
-
     public SlidingImageAdapter(Context context,List<Photo> imageUrls) {
         this.context = context;
         this.imageUrls = imageUrls;
-
     }
     @NonNull
     @Override
@@ -41,19 +36,16 @@ public class SlidingImageAdapter extends PagerAdapter {
         View itemView = inflater.inflate(R.layout.item_photo, view, false);
         ImageView imageView = itemView.findViewById(R.id.image);
         TextView authorTv = itemView.findViewById(R.id.item_photo_author);
-
         Photo model = imageUrls.get(position);
-
         Glide.with(context)
                 .load(model.getUrls().getRegular())
                 .transition(new DrawableTransitionOptions().crossFade(1000))
                 .apply(new RequestOptions().placeholder(R.drawable.ic_launcher_background))
                 .into(imageView);
 
-
-        authorTv.setText(context.getString(R.string.by_concat_string) + imageUrls.get(position).user.name + context.getString(R.string.on_Unsplash_concat));
+        String formatedCredit = context.getString(R.string.photo_credit, imageUrls.get(position).user.name);
+        authorTv.setText(formatedCredit);
         view.addView(itemView);
-
         return itemView;
     }
     @Override
@@ -64,8 +56,5 @@ public class SlidingImageAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
-
-
-
 }
 

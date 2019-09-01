@@ -8,5 +8,4 @@ public class User {
     @Expose
     public String id;
     public String name;
-
 }

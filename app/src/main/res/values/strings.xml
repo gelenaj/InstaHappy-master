@@ -18,27 +18,23 @@
     <string name="retry">Retry</string>
     <string name="photo_image">photo image</string>
     <string name="by_author">By author</string>
-    <string name="by_concat_string">By </string>
-    <string name="on_Unsplash_concat">on Unsplash</string>
+    <string name="photo_credit"> By %1s on Unsplash</string>
     <string name="error_title">purchase app</string>
     <string name="error_message">need to purchase</string>
     <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
-
     <string name="title_activity_nav_drawer">NavDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>
+    <string name="server_client_id">747970262562&#8211;6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>
     <string name="welcome_user_msg">Welcome</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -53,8 +49,17 @@
     <string name="sign_up">Sign Up</string>
     <string name="make_me_happy">Make me happy</string>
     <string name="reset_password">Reset Password</string>
-
-    <!--<string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>-->
-    <!--<string name="server_client_id">747970262562-m896t7cdr0mt9pli9ij6gah1av1kd85d.apps.googleusercontent.comm</string>-->
-    <!--<string name="server_client_id">747970262562-s61irtqp0qi3lt0ra9i5imfol845a742.apps.googleusercontent.com</string>-->
+    <string name="home">Home</string>
+    <string name="my_collection">My Collection</string>
+    <string name="sign_in">Sign In</string>
+    <string name="communicate">Communicate</string>
+    <string name="sign_out">Sign out</string>
+    <string name="please_upgrade">Please Upgrade</string>
+    <string name="create_account">Create an account</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="reset">Reset</string>
+    <string name="reset_instructions">Enter your email and we will send you a link to reset your password.</string>
+    <string name="enter_picture_name">Enter picture name</string>
+    <string name="upload_icon">image of upload icon</string>
+    <string name="communicate">Communicate</string>
 </resources>

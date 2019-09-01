@@ -1,19 +1,13 @@
-package com.example.instahappy.free;
-
-
-
+package com.example.instahappy.free.adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-
 import com.example.instahappy.fragments.Tab1Fragment;
-//import com.example.instahappy.free.Tab2Fragment;
-
+import com.example.instahappy.free.fragments.Tab2Fragment;
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
     private final int tabCount;
-
     public TabPagerAdapter(FragmentManager fm, int numberOfTabs) {
         super(fm);
         this.tabCount = numberOfTabs;
@@ -26,7 +20,6 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new Tab1Fragment();
             case 1:
-
                 return new Tab2Fragment();
             default:
                 return null;

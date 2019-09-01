@@ -10,52 +10,39 @@ public class Photo {
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
-
     public int getWidth() {
         return width;
     }
-
     public void setWidth(int width) {
         this.width = width;
     }
-
     public int getHeight() {
         return height;
     }
-
     public void setHeight(int height) {
         this.height = height;
     }
-
     public String getColor() {
         return color;
     }
-
     public void setColor(String color) {
         this.color = color;
     }
-
     public String getAltDescription() {
         return altDescription;
     }
-
     public void setAltDescription(String altDescription) {
         this.altDescription = altDescription;
     }
-
     public Urls getUrls() {
         return urls;
     }
-
     public void setUrls(Urls mUrls) {
         this.urls =mUrls;
     }
-
-
 
     @SerializedName("id")
     @Expose
@@ -88,15 +75,12 @@ public class Photo {
     public List<Photo> getPhotosList() {
         return photosList;
     }
-
     public void setPhotosList(List<Photo> photosList) {
         this.photosList = photosList;
     }
-
     private List<Photo>photosList;
 
     @SerializedName("user")
     @Expose
     public User user;
-
 }
