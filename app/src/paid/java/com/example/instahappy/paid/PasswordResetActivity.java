@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -30,7 +31,15 @@ public class PasswordResetActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.password_reset);
-        toolbar = findViewById(R.id.toolbar);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle(getResources().getString(R.string.reset_password));
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
+
+
         progressBar = findViewById(R.id.loadingReset);
         resetBtn = findViewById(R.id.resetButton);
         userEmail = findViewById(R.id.emailEditText);

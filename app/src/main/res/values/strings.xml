@@ -52,6 +52,7 @@
     <string name="forgot_password">forgot password?</string>
     <string name="sign_up">Sign Up</string>
     <string name="make_me_happy">Make me happy</string>
+    <string name="reset_password">Reset Password</string>
 
     <!--<string name="server_client_id">747970262562-6mbhvab1tsk0cvkk6a2envl9siuie0q5.apps.googleusercontent.com</string>-->
     <!--<string name="server_client_id">747970262562-m896t7cdr0mt9pli9ij6gah1av1kd85d.apps.googleusercontent.comm</string>-->
