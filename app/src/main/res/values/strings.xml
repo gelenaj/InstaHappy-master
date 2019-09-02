@@ -63,4 +63,11 @@
     <string name="communicate">communicate</string>
     <string name="verify_email">Verify email</string>
     <string name="action_home">Home</string>
+    <string name="error_uploading">Could not upload, sorry!</string>
+    <string name="no_file_selected">No File selected</string>
+    <string name="cd_selected_image">selected image preview</string>
+    <string name="cd_button_to_choose_img">Choose image button</string>
+    <string name="cd_upload_status_tv">status of photo upload</string>
+    <string name="choose_file">Choose file</string>
+    <string name="upload_complete">Upload Complete!</string>
 </resources>

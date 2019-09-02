@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instahappy.R;
-import com.example.instahappy.paid.MediaInfo;
 import com.example.instahappy.paid.photos.Photo;
 
 import java.util.ArrayList;

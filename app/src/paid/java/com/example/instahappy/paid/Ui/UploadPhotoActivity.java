@@ -3,14 +3,18 @@ package com.example.instahappy.paid.Ui;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,7 +38,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class GalleryActivity extends AppCompatActivity {
+public class UploadPhotoActivity extends AppCompatActivity {
     static final int REQUEST_GALLERY_PHOTO = 102;
     private static final int PICK_IMAGE_REQUEST = 1;
     static String[] permissions = new String[]{
@@ -45,6 +49,7 @@ public class GalleryActivity extends AppCompatActivity {
     private ImageView imageView;
     private ProgressBar mProgressBar;
     private EditText mEditTextFileName;
+    private TextView uploadStatusTv;
     FirebaseDatabase database;
     DatabaseReference myRef;
     private FirebaseAuth mAuth;
@@ -53,32 +58,51 @@ public class GalleryActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
-    private StorageTask mUploadTask;
+    private SharedPreferences sharedPref;
+    boolean isLoggedIn;
+    SharedPreferences.Editor editor;
 
+    private StorageTask mUploadTask;
+    FirebaseUser user;
+    Button chooseImageBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_upload);
-        imageView = findViewById(R.id.image);
+        imageView = findViewById(R.id.image_view);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
-        openFileChooser();
-        mProgressBar = findViewById(R.id.progress_bar);
-        mUploadButton = findViewById(R.id.uploadBtn);
-        mUploadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                upload();
-            }
-        });
+        uploadStatusTv = findViewById(R.id.upload_status_tv);
+
+        chooseImageBtn = findViewById(R.id.button_choose_image);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("uploads");
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = database.getReference("uploads");
-        FirebaseUser user = mAuth.getCurrentUser();
+
+        mAuth= FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+        mProgressBar = findViewById(R.id.progress_bar);
+        chooseImageBtn.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View v) {
+                                                  openFileChooser();
+                                              }
+                                          });
+
+        mUploadButton = findViewById(R.id.uploadBtn);
+            mUploadButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("UploadPhotoActivity", "User exists");
+                    upload();
+
+
+
+                }
+            });
     }
-
     @Override
-
     public void onBackPressed() {
 
         Fragment fragment = new Tab2Fragment();
@@ -103,9 +127,8 @@ public class GalleryActivity extends AppCompatActivity {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
     private void upload() {
-        //final String userId = getUid;
-
         if(mImageUri !=null) {
+            mProgressBar.setVisibility(View.VISIBLE);
             StorageReference fileReference = mStorageRef.child(
                     System.currentTimeMillis() + "." + getFileExtension(mImageUri));
             fileReference.putFile(mImageUri)
@@ -116,15 +139,15 @@ public class GalleryActivity extends AppCompatActivity {
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    mProgressBar.setVisibility(View.VISIBLE);
                                     mProgressBar.setProgress(0);
                                 }
-                            }, 5000);
-                            Toast.makeText(GalleryActivity.this, "personalPhoto successful", Toast.LENGTH_SHORT).show();
-
+                            }, 4000);
+                            uploadStatusTv.setVisibility(View.VISIBLE);
                             String key = mDatabaseRef.child("uploads").push().getKey();
 
                             PersonalPhoto personalPhoto = new PersonalPhoto(
-                                    mAuth.getUid(),mAuth.getCurrentUser(),
+                                    user.getUid(),user,
                                     mEditTextFileName.getText().toString().trim(),
                                     mStorageRef.getDownloadUrl().toString());
 
@@ -136,7 +159,7 @@ public class GalleryActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(GalleryActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UploadPhotoActivity.this, "No file selected", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -144,10 +167,14 @@ public class GalleryActivity extends AppCompatActivity {
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                             double progress = (100.0 * taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
                             mProgressBar.setProgress((int) progress);
+
+                            finish();
                         }
                     });
         }else{
-            Toast.makeText(this, "No file selected", Toast.LENGTH_LONG).show();
+            uploadStatusTv.setText(getResources().getString(R.string.no_file_selected));
+            uploadStatusTv.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -159,7 +186,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
@@ -167,6 +194,8 @@ public class GalleryActivity extends AppCompatActivity {
             mImageUri = data.getData();
 
             Picasso.get().load(mImageUri).into(imageView);
+        }else{
+            Log.d("UploadPhotoActivity", "Error with Result" + resultCode);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.instahappy.paid.Ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -11,6 +12,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,8 @@ import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Tab2Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +39,8 @@ public class Tab2Fragment extends Fragment {
     private CoordinatorLayout coordinator;
     private URI mMediaUri;
     String currentPhotoPath;
-
+    private SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     public Tab2Fragment() {
 
     }
@@ -59,6 +64,7 @@ public class Tab2Fragment extends Fragment {
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sharedPref = getActivity().getPreferences(MODE_PRIVATE);
 
 
     }
@@ -87,8 +93,17 @@ public class Tab2Fragment extends Fragment {
         gallery_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GalleryActivity.class);
-                startActivity(intent);
+
+                if(!sharedPref.getBoolean("isLoggedIn", false)){
+                    Log.d("TabFragment", "User does not exists");
+                    Toast.makeText(getContext(), "Please log in to continue.", Toast.LENGTH_LONG).show();
+                }else {
+                    Log.d("UploadPhotoActivity", "User exists");
+                    Intent intent = new Intent(getActivity(), UploadPhotoActivity.class);
+                    startActivity(intent);
+
+                }
+
             }
         });
 
