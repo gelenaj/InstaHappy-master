@@ -70,4 +70,5 @@
     <string name="cd_upload_status_tv">status of photo upload</string>
     <string name="choose_file">Choose file</string>
     <string name="upload_complete">Upload Complete!</string>
+    <string name="select_photo_category">Select photo category</string>
 </resources>

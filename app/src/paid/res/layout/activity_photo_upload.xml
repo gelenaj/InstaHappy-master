@@ -50,14 +50,12 @@
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="bottom|end"
+        android:layout_marginBottom="8dp"
+
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/button_choose_image"
@@ -80,16 +78,7 @@
             app:layout_constraintEnd_toStartOf="@+id/uploadBtn"
             tools:layout_editor_absoluteY="688dp" />
 
-        <ImageView
-            android:id="@+id/uploadBtn"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="260dp"
-            android:background="@color/colorAccent"
-            android:contentDescription="@string/upload_icon"
-            android:src="@drawable/upload__icon"
-            app:layout_constraintTop_toBottomOf="@+id/image"
-            tools:layout_editor_absoluteX="206dp" />
+
     </LinearLayout>
 
     <TextView
@@ -106,5 +95,48 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom|end"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/selectCatLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/select_photo_category" />
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/categories" />
+
+
+        <ImageView
+            android:id="@+id/uploadBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="260dp"
+            android:background="@color/colorAccent"
+            android:contentDescription="@string/upload_icon"
+            android:src="@drawable/upload__icon"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            tools:layout_editor_absoluteX="206dp" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

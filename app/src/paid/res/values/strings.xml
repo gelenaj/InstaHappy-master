@@ -6,4 +6,11 @@
     <string name="loggedIn_msg">You are now logged in. %2$s</string>
     <string name="loggedIn_msg_for_verfified">You are now logged in.</string>
     <string name="loggedIn">loggedIn</string>
+    
+    <string-array name="categories">
+        <item>Kids</item>
+        <item>Pets</item>
+        <item>Nature</item>
+        <item>Love</item>
+    </string-array>
 </resources>

@@ -10,10 +10,13 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -24,7 +27,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.instahappy.R;
 //import com.example.instahappy.paid.ImagePresenter;
-import com.example.instahappy.paid.PersonalPhoto;
+import com.example.instahappy.paid.model.Category;
+import com.example.instahappy.paid.model.PersonalPhoto;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +42,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class UploadPhotoActivity extends AppCompatActivity {
+public class UploadPhotoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     static final int REQUEST_GALLERY_PHOTO = 102;
     private static final int PICK_IMAGE_REQUEST = 1;
     static String[] permissions = new String[]{
@@ -65,6 +69,11 @@ public class UploadPhotoActivity extends AppCompatActivity {
     private StorageTask mUploadTask;
     FirebaseUser user;
     Button chooseImageBtn;
+
+    Spinner spin;
+    String catName;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +110,16 @@ public class UploadPhotoActivity extends AppCompatActivity {
 
                 }
             });
+
+
+        spin = (Spinner) findViewById(R.id.categorySpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(adapter);
+        spin.setOnItemSelectedListener(this);
     }
+
+
     @Override
     public void onBackPressed() {
 
@@ -119,6 +137,7 @@ public class UploadPhotoActivity extends AppCompatActivity {
         }
         super.onBackPressed();
     }
+
 
 
     private String getFileExtension(Uri uri){
@@ -146,14 +165,17 @@ public class UploadPhotoActivity extends AppCompatActivity {
                             uploadStatusTv.setVisibility(View.VISIBLE);
                             String key = mDatabaseRef.child("uploads").push().getKey();
 
+                            Category category = new Category(catName);
+
                             PersonalPhoto personalPhoto = new PersonalPhoto(
+                                   category,
                                     user.getUid(),user,
                                     mEditTextFileName.getText().toString().trim(),
                                     mStorageRef.getDownloadUrl().toString());
 
                             String uploadId = myRef.push().getKey();
 
-                            myRef.child(uploadId).setValue(personalPhoto);
+                           myRef.child(uploadId).setValue(personalPhoto);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -197,5 +219,17 @@ public class UploadPhotoActivity extends AppCompatActivity {
         }else{
             Log.d("UploadPhotoActivity", "Error with Result" + resultCode);
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        catName = parent.getItemAtPosition(position).toString();
+
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
