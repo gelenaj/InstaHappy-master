@@ -62,4 +62,5 @@
     <string name="upload_icon">image of personalPhoto icon</string>
     <string name="communicate">communicate</string>
     <string name="verify_email">Verify email</string>
+    <string name="action_home">Home</string>
 </resources>

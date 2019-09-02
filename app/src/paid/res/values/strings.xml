@@ -4,4 +4,6 @@
     <string name="auth_failed">Authentication failed</string>
     <string name="emailpassword_status_fmt">Sent email to %1$s\n%2$s</string>
     <string name="loggedIn_msg">You are now logged in. %2$s</string>
+    <string name="loggedIn_msg_for_verfified">You are now logged in.</string>
+    <string name="loggedIn">loggedIn</string>
 </resources>

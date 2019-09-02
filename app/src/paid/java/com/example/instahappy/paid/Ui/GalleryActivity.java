@@ -23,6 +23,8 @@ import com.example.instahappy.R;
 import com.example.instahappy.paid.PersonalPhoto;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -45,10 +47,9 @@ public class GalleryActivity extends AppCompatActivity {
     private EditText mEditTextFileName;
     FirebaseDatabase database;
     DatabaseReference myRef;
-
+    private FirebaseAuth mAuth;
     public static final String TAG = "UploadActivity";
     public static final String PHOTOS_FIREBASE_KEY = "photos";
-
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
@@ -73,6 +74,7 @@ public class GalleryActivity extends AppCompatActivity {
         myRef = database.getReference("uploads");
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = database.getReference("uploads");
+        FirebaseUser user = mAuth.getCurrentUser();
     }
 
     @Override
@@ -121,14 +123,14 @@ public class GalleryActivity extends AppCompatActivity {
 
                             String key = mDatabaseRef.child("uploads").push().getKey();
 
-//                            PersonalPhoto personalPhoto = new PersonalPhoto(
-//                                    userId,
-//                                    mEditTextFileName.getText().toString().trim(),
-//                                    mStorageRef.getDownloadUrl().toString());
+                            PersonalPhoto personalPhoto = new PersonalPhoto(
+                                    mAuth.getUid(),mAuth.getCurrentUser(),
+                                    mEditTextFileName.getText().toString().trim(),
+                                    mStorageRef.getDownloadUrl().toString());
 
                             String uploadId = myRef.push().getKey();
 
-                      //      myRef.child(uploadId).setValue(personalPhoto);
+                            myRef.child(uploadId).setValue(personalPhoto);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -167,8 +169,4 @@ public class GalleryActivity extends AppCompatActivity {
             Picasso.get().load(mImageUri).into(imageView);
         }
     }
-
-
-
-
 }

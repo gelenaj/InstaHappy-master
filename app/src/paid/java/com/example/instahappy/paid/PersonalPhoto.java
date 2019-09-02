@@ -1,9 +1,11 @@
 package com.example.instahappy.paid;
 
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class PersonalPhoto {
     public String uid;
-    public String user;
+    public FirebaseUser user;
     private String mTitle;
     private String mImageUrl;
 
@@ -11,7 +13,7 @@ public class PersonalPhoto {
 
     }
 
-    public PersonalPhoto(String uid, String user, String title, String imageUrl) {
+    public PersonalPhoto(String uid, FirebaseUser user, String title, String imageUrl) {
         this.uid = uid;
         this.user=user;
         if (title.trim().equals("")) {

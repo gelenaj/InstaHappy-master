@@ -6,14 +6,13 @@
     android:layout_height="wrap_content">
     <group android:checkableBehavior="single">
         <item
+            android:visible="false"
             android:id="@+id/nav_home"
             android:title="@string/menu_home" />
         <item
-            android:visible="true"
             android:id="@+id/nav_sign_in"
             android:title="@string/sign_in" />
         <item
-            android:visible="false"
             android:id="@+id/nav_sign_out"
             android:title="@string/sign_out" />
     </group>

@@ -5,31 +5,38 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+
     android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
 
     <TextView
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Signed out"
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.089" />
 
     <Button
         android:id="@+id/signOutBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="1.0"
         android:background="@color/colorPrimary"
@@ -46,6 +53,8 @@
         android:id="@+id/verifyEmailBtn"
         android:layout_width="0dp"
         android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1.0"
         android:background="@color/colorPrimary"
         android:text="@string/verify_email"
@@ -62,13 +71,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="24dp"
         android:autofillHints="@string/prompt_email"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,8 +97,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toTopOf="@+id/forgot_password_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fieldEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/fieldEmail"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/signInButton"
@@ -96,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="72dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
         android:text="@string/action_sign_in_short"
@@ -127,7 +139,7 @@
         android:id="@+id/connectWithTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="60dp"
         android:text="@string/or_connect_with"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,22 +182,19 @@
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connectWithTv"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <TextView
         android:id="@+id/forgot_password_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
         android:text="@string/forgot_password"
-        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/loading"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintTop_toTopOf="@+id/signOutBtn" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -193,7 +202,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="24dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
