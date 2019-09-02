@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.instahappy.fragments.Tab1Fragment;
-import com.example.instahappy.paid.Tab2Fragment;
+import com.example.instahappy.paid.Ui.Tab2Fragment;
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
     private final int tabCount;

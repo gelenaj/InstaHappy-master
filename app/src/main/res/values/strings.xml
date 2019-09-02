@@ -52,7 +52,6 @@
     <string name="home">Home</string>
     <string name="my_collection">My Collection</string>
     <string name="sign_in">Sign In</string>
-    <string name="communicate">Communicate</string>
     <string name="sign_out">Sign out</string>
     <string name="please_upgrade">Please Upgrade</string>
     <string name="create_account">Create an account</string>
@@ -60,6 +59,7 @@
     <string name="reset">Reset</string>
     <string name="reset_instructions">Enter your email and we will send you a link to reset your password.</string>
     <string name="enter_picture_name">Enter picture name</string>
-    <string name="upload_icon">image of upload icon</string>
-    <string name="communicate">Communicate</string>
+    <string name="upload_icon">image of personalPhoto icon</string>
+    <string name="communicate">communicate</string>
+    <string name="verify_email">Verify email</string>
 </resources>

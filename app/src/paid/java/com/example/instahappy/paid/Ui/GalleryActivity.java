@@ -1,19 +1,14 @@
-package com.example.instahappy.paid;
+package com.example.instahappy.paid.Ui;
 
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,13 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.instahappy.R;
-import com.example.instahappy.paid.adapters.ImageAdapter;
+//import com.example.instahappy.paid.ImagePresenter;
+import com.example.instahappy.paid.PersonalPhoto;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,7 +31,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-import java.io.File;
 
 public class GalleryActivity extends AppCompatActivity {
     static final int REQUEST_GALLERY_PHOTO = 102;
@@ -46,7 +39,7 @@ public class GalleryActivity extends AppCompatActivity {
             Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     ImageView mUploadButton;
     private Uri mImageUri;
-    private ImagePresenter mPresenter;
+   // private ImagePresenter mPresenter;
     private ImageView imageView;
     private ProgressBar mProgressBar;
     private EditText mEditTextFileName;
@@ -108,6 +101,7 @@ public class GalleryActivity extends AppCompatActivity {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
     private void upload() {
+        //final String userId = getUid;
 
         if(mImageUri !=null) {
             StorageReference fileReference = mStorageRef.child(
@@ -123,13 +117,18 @@ public class GalleryActivity extends AppCompatActivity {
                                     mProgressBar.setProgress(0);
                                 }
                             }, 5000);
-                            Toast.makeText(GalleryActivity.this, "upload successful", Toast.LENGTH_SHORT).show();
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    mStorageRef.getDownloadUrl().toString());
+                            Toast.makeText(GalleryActivity.this, "personalPhoto successful", Toast.LENGTH_SHORT).show();
+
+                            String key = mDatabaseRef.child("uploads").push().getKey();
+
+//                            PersonalPhoto personalPhoto = new PersonalPhoto(
+//                                    userId,
+//                                    mEditTextFileName.getText().toString().trim(),
+//                                    mStorageRef.getDownloadUrl().toString());
 
                             String uploadId = myRef.push().getKey();
 
-                            myRef.child(uploadId).setValue(upload);
+                      //      myRef.child(uploadId).setValue(personalPhoto);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

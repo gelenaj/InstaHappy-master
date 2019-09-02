@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signed_out">Signed Out</string>
+    <string name="auth_failed">Authentication failed</string>
+    <string name="emailpassword_status_fmt">Sent email to %1$s\n%2$s</string>
+    <string name="loggedIn_msg">You are now logged in. %2$s</string>
+</resources>

@@ -12,6 +12,10 @@
             android:visible="true"
             android:id="@+id/nav_sign_in"
             android:title="@string/sign_in" />
+        <item
+            android:visible="false"
+            android:id="@+id/nav_sign_out"
+            android:title="@string/sign_out" />
     </group>
     <item android:title="@string/communicate">
         <menu>

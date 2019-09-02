@@ -1,4 +1,4 @@
-package com.example.instahappy.paid;
+package com.example.instahappy.paid.Ui;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -37,20 +37,11 @@ public class Tab2Fragment extends Fragment {
     String currentPhotoPath;
 
     public Tab2Fragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Tab2Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static com.example.instahappy.paid.Tab2Fragment newInstance(String param1, String param2) {
-        com.example.instahappy.paid.Tab2Fragment fragment = new com.example.instahappy.paid.Tab2Fragment();
+    public static Tab2Fragment newInstance(String param1, String param2) {
+        Tab2Fragment fragment = new Tab2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

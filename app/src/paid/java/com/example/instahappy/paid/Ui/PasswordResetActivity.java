@@ -1,4 +1,4 @@
-package com.example.instahappy.paid;
+package com.example.instahappy.paid.Ui;
 
 import android.content.Intent;
 import android.os.Bundle;
