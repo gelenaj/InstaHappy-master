@@ -44,9 +44,9 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
         View rootView =inflater.inflate(R.layout.fragment_tab1, container, false);
 
         FrameLayout tab1 = rootView.findViewById(R.id.tab1_framelayout);
-        Button kidsBtn = rootView.findViewById(R.id.kids_button_tab2);
+        Button kidsBtn = rootView.findViewById(R.id.kids_button);
         Button natureBtn = rootView.findViewById(R.id.nature_button);
-        Button petsBtn = rootView.findViewById(R.id.pets_button_tab2);
+        Button petsBtn = rootView.findViewById(R.id.pets_button);
         Button loveBtn = rootView.findViewById(R.id.love_button);
 
         kidsBtn.setOnClickListener(this);
@@ -62,10 +62,10 @@ public class Tab1Fragment extends Fragment implements View.OnClickListener {
         Context mContext = getContext();
 
         switch(v.getId()){
-            case R.id.kids_button_tab2:
+            case R.id.kids_button:
                 intent.putExtra("btnClickedId", Constants.kidsCollectionId);
                 break;
-            case R.id.pets_button_tab2:
+            case R.id.pets_button:
                 intent.putExtra("btnClickedId", Constants.petCollectionId);
                 break;
             case R.id.nature_button:

@@ -34,14 +34,14 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/kids_button_tab2"
+                android:id="@+id/personal_kids_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:text="@string/kids" />
 
             <Button
-                android:id="@+id/pets_button_tab2"
+                android:id="@+id/personal_pets_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"

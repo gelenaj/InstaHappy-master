@@ -28,7 +28,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/kids_button_tab2"
+            android:id="@+id/kids_button"
             style="@style/MainTab1Button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -37,7 +37,7 @@
             android:text="@string/kids" />
 
         <Button
-            android:id="@+id/pets_button_tab2"
+            android:id="@+id/pets_button"
             style="@style/MainTab1Button"
             android:layout_height="60dp"
             android:layout_width="match_parent"

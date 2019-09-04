@@ -6,4 +6,9 @@ public class Constants {
     public static final int natureCollectionId= 6786014;
     public static final int loveCollectionId= 6816268;
     public static final String INVALID_PHOTO_ID_ERROR = "\"Invalid photo ID\\nPlease close this page and try to open the Photo again.\";";
+
+    public static final String personalKidsCollectionLabel = "Kids";
+    public static final String personalPetsCollectionLabel = "Pets";
+    public static final String personalNatureCollectionLabel = "Nature";
+    public static final String personalLoveCollectionLabel = "Love";
 }

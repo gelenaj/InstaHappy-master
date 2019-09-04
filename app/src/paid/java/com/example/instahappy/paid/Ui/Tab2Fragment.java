@@ -1,26 +1,24 @@
 package com.example.instahappy.paid.Ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 import com.example.instahappy.R;
-
+import com.example.instahappy.model.Constants;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -29,9 +27,7 @@ import java.util.Date;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Tab2Fragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class Tab2Fragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final int REQUEST_TAKE_PHOTO = 0;
@@ -41,6 +37,7 @@ public class Tab2Fragment extends Fragment {
     String currentPhotoPath;
     private SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
+
     public Tab2Fragment() {
 
     }
@@ -58,15 +55,11 @@ public class Tab2Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         if (getArguments() != null) {
-            // TODO: Rename and change types of parameters
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         sharedPref = getActivity().getPreferences(MODE_PRIVATE);
-
-
     }
 
 
@@ -75,29 +68,26 @@ public class Tab2Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_tab2, container, false);
-        Button kidsBtn = rootView.findViewById(R.id.kids_button_tab2);
-        Button petsBtn = rootView.findViewById(R.id.pets_button_tab2);
-        Button natureBtn = rootView.findViewById(R.id.nature_button_tab2);
-        Button loveBtn = rootView.findViewById(R.id.love_button_tab2);
+        Button kidsBtn = rootView.findViewById(R.id.personal_kids_button_tab2);
+        Button petsBtn = rootView.findViewById(R.id.personal_pets_button_tab2);
+        Button natureBtn = rootView.findViewById(R.id.personal_nature_button_tab2);
+        Button loveBtn = rootView.findViewById(R.id.personal_love_button_tab2);
         FloatingActionButton camera_fab = rootView.findViewById(R.id.camera_fab);
-
         FloatingActionButton gallery_fab = rootView.findViewById(R.id.image_gallery_fab);
         coordinator = rootView.findViewById(R.id.coordinatorLayout);
-
-        kidsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
-
-        petsBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
-        natureBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
-        loveBtn.setOnClickListener(v -> Toast.makeText(getActivity(), "Please upgrade", Toast.LENGTH_LONG).show());
+        kidsBtn.setOnClickListener(this);
+        petsBtn.setOnClickListener(this);
+        natureBtn.setOnClickListener(this);
+        loveBtn.setOnClickListener(this);
 
         gallery_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!sharedPref.getBoolean("isLoggedIn", false)){
+                if (!sharedPref.getBoolean("isLoggedIn", false)) {
                     Log.d("TabFragment", "User does not exists");
                     Toast.makeText(getContext(), "Please log in to continue.", Toast.LENGTH_LONG).show();
-                }else {
+                } else {
                     Log.d("UploadPhotoActivity", "User exists");
                     Intent intent = new Intent(getActivity(), UploadPhotoActivity.class);
                     startActivity(intent);
@@ -111,16 +101,13 @@ public class Tab2Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                // Ensure that there's a camera activity to handle the intent
                 if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-                    // Create the File where the photo should go
                     File photoFile = null;
                     try {
                         photoFile = createImageFile();
                     } catch (IOException ex) {
                         Toast.makeText(getActivity(), "An error occurred", Toast.LENGTH_LONG).show();
                     }
-                    // Continue only if the File was successfully created
                     if (photoFile != null) {
                         Uri photoURI = FileProvider.getUriForFile(getActivity(),
                                 "com.example.instahappy.paid",
@@ -135,7 +122,6 @@ public class Tab2Fragment extends Fragment {
     }
 
     private File createImageFile() throws IOException {
-        // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -144,20 +130,15 @@ public class Tab2Fragment extends Fragment {
                 ".jpg",         /* suffix */
                 storageDir      /* directory */
         );
-
-        // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
         return image;
     }
 
     private URI getOutputMediaFileUri(int mediaType) {
-        //check for external storage
         if (isExternalStorageAvailable()) {
             return null;
         }
-        //something went wrong
         return null;
-
     }
 
     private boolean isExternalStorageAvailable() {
@@ -167,5 +148,36 @@ public class Tab2Fragment extends Fragment {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        Context mContext = getContext();
+
+        switch (v.getId()) {
+            case R.id.personal_kids_button_tab2:
+                intent.putExtra("personalCollectionId", Constants.personalKidsCollectionLabel);
+                intent.setClass(mContext, PersonalCollectionsActivity.class);
+                mContext.startActivity(intent);
+                break;
+            case R.id.personal_pets_button_tab2:
+                intent.putExtra("personalCollectionId", Constants.personalPetsCollectionLabel);
+                intent.setClass(mContext, PersonalCollectionsActivity.class);
+                mContext.startActivity(intent);
+                break;
+            case R.id.personal_nature_button_tab2:
+                intent.putExtra("personalCollectionId", Constants.personalNatureCollectionLabel);
+                intent.setClass(mContext, PersonalCollectionsActivity.class);
+                mContext.startActivity(intent);
+                break;
+            case R.id.personal_love_button_tab2:
+                intent.putExtra("personalCollectionId", Constants.personalLoveCollectionLabel);
+                intent.setClass(mContext, PersonalCollectionsActivity.class);
+                mContext.startActivity(intent);
+                break;
+        }
+
+
     }
 }

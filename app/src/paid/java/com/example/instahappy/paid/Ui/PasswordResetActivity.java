@@ -36,7 +36,6 @@ public class PasswordResetActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         ActionBar ab = getSupportActionBar();
         ab.setTitle(getResources().getString(R.string.reset_password));
-        // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
 
 

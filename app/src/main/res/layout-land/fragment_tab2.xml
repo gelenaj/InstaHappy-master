@@ -27,13 +27,13 @@
                 tools:layout_editor_absoluteX="8dp">
 
                 <Button
-                    android:id="@+id/kids_button_tab2"
+                    android:id="@+id/personal_kids_button_tab2"
                     style="@style/MainTab1Button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:elevation="2dp"
                     android:text="@string/kids"
-                    app:layout_constraintBottom_toTopOf="@+id/pets_button_tab2"
+                    app:layout_constraintBottom_toTopOf="@+id/pets_button"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="spread" />
@@ -55,16 +55,16 @@
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/kids_button_tab2"
-                    app:layout_constraintEnd_toEndOf="@id/kids_button_tab2"
+                    app:layout_constraintBottom_toBottomOf="@+id/personal_kids_button_tab2"
+                    app:layout_constraintEnd_toEndOf="@id/personal_kids_button_tab2"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/kids_button_tab2"
+                    app:layout_constraintTop_toTopOf="@+id/personal_kids_button_tab2"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
                     tools:srcCompat="@drawable/ic_more_horiz_24dp" />
                 <Button
-                    android:id="@+id/pets_button_tab2"
+                    android:id="@+id/personal_pets_button_tab2"
                     style="@style/MainTab1Button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
@@ -74,7 +74,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2" />
+                    app:layout_constraintTop_toBottomOf="@+id/personal_kids_button_tab2" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline4"
@@ -93,18 +93,18 @@
                     android:foregroundGravity="top"
                     android:scaleType="center"
                     android:src="@drawable/ic_more_horiz_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/pets_button_tab2"
-                    app:layout_constraintEnd_toEndOf="@id/pets_button_tab2"
+                    app:layout_constraintBottom_toBottomOf="@+id/pets_button"
+                    app:layout_constraintEnd_toEndOf="@id/pets_button"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/pets_button_tab2"
+                    app:layout_constraintTop_toTopOf="@+id/pets_button"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".7"
                     tools:srcCompat="@drawable/ic_more_horiz_24dp" />
 
 
                 <Button
-                    android:id="@+id/nature_button_tab2"
+                    android:id="@+id/personal_nature_button_tab2"
                     style="@style/MainTab1Button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
@@ -114,7 +114,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/pets_button_tab2" />
+                    app:layout_constraintTop_toBottomOf="@+id/pets_button" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline5"
@@ -145,7 +145,7 @@
 
 
                 <Button
-                    android:id="@+id/love_button_tab2"
+                    android:id="@+id/personal_love_button_tab2"
                     style="@style/MainTab1Button"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"

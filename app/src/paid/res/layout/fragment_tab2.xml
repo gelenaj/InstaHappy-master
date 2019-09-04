@@ -21,12 +21,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/kids_button_tab2"
+                android:id="@+id/personal_kids_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/kids"
-                app:layout_constraintBottom_toTopOf="@+id/pets_button_tab2"
+                app:layout_constraintBottom_toTopOf="@+id/personal_pets_button_tab2"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -37,35 +37,14 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.25" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="59dp"
-                    android:layout_height="23dp"
-                    android:layout_marginStart="8dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/menu_icon"
-                    android:elevation="2dp"
-                    android:foregroundGravity="top"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_more_horiz_24dp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@+id/kids_button_tab2"
-                    app:layout_constraintEnd_toEndOf="@id/kids_button_tab2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/kids_button_tab2"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
-
             <Button
-                android:id="@+id/pets_button_tab2"
+                android:id="@+id/personal_pets_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/pets"
-                app:layout_constraintBottom_toTopOf="@+id/nature_button_tab2"
-                app:layout_constraintTop_toBottomOf="@+id/kids_button_tab2"
+                app:layout_constraintBottom_toTopOf="@+id/personal_nature_button_tab2"
+                app:layout_constraintTop_toBottomOf="@+id/personal_kids_button_tab2"
                 tools:layout_editor_absoluteX="0dp" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -76,89 +55,26 @@
                 app:layout_constraintGuide_begin="132dp"
                 app:layout_constraintGuide_percent="0.25" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="59dp"
-                    android:layout_height="23dp"
-                    android:layout_marginStart="8dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/menu_icon"
-                    android:elevation="2dp"
-                    android:foregroundGravity="top"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_more_horiz_24dp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@+id/pets_button_tab2"
-                    app:layout_constraintEnd_toEndOf="@id/pets_button_tab2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/pets_button_tab2"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp" />
-
             <Button
-                android:id="@+id/nature_button_tab2"
+                android:id="@+id/personal_nature_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/nature"
-                app:layout_constraintBottom_toTopOf="@+id/love_button_tab2"
-                app:layout_constraintTop_toBottomOf="@+id/pets_button_tab2"
+                app:layout_constraintBottom_toTopOf="@+id/personal_love_button_tab2"
+                app:layout_constraintTop_toBottomOf="@+id/personal_pets_button_tab2"
                 tools:layout_editor_absoluteX="0dp" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="59dp"
-                    android:layout_height="23dp"
-                    android:layout_marginStart="8dp"
-                    android:adjustViewBounds="true"
-                    android:elevation="2dp"
-                    android:foregroundGravity="top"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_more_horiz_24dp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="@id/nature_button_tab2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/nature_button_tab2"
-                    app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp"
-                    android:contentDescription="@string/menu_icon" />
-
             <Button
-                android:id="@+id/love_button_tab2"
+                android:id="@+id/personal_love_button_tab2"
                 style="@style/MainTab1Button"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="@string/love"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nature_button_tab2" />
+                app:layout_constraintTop_toBottomOf="@+id/personal_nature_button_tab2" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="59dp"
-                    android:layout_height="23dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="23dp"
-                    android:adjustViewBounds="true"
-                    android:elevation="2dp"
-                    android:foregroundGravity="top"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_more_horiz_24dp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@id/love_button_tab2"
-                    app:layout_constraintEnd_toEndOf="@id/love_button_tab2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/love_button_tab2"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:layout_constraintWidth_percent=".7"
-                    tools:srcCompat="@drawable/ic_more_horiz_24dp"
-                    android:contentDescription="@string/menu_icon" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/image_gallery_fab"

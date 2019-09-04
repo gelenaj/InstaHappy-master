@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,10 +28,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.instahappy.R;
 //import com.example.instahappy.paid.ImagePresenter;
-import com.example.instahappy.paid.model.Category;
 import com.example.instahappy.paid.model.PersonalPhoto;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -42,13 +45,17 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 public class UploadPhotoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     static final int REQUEST_GALLERY_PHOTO = 102;
     private static final int PICK_IMAGE_REQUEST = 1;
     static String[] permissions = new String[]{
             Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     ImageView mUploadButton;
-    private Uri mImageUri;
+    private Uri mImageFile;
    // private ImagePresenter mPresenter;
     private ImageView imageView;
     private ProgressBar mProgressBar;
@@ -61,17 +68,20 @@ public class UploadPhotoActivity extends AppCompatActivity implements AdapterVie
     public static final String PHOTOS_FIREBASE_KEY = "photos";
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-
+    LinearLayout uploadName;
+    LinearLayout uploadDetails;
     private SharedPreferences sharedPref;
     boolean isLoggedIn;
     SharedPreferences.Editor editor;
 
-    private StorageTask mUploadTask;
+    private Task<Uri> mUploadTask;
     FirebaseUser user;
     Button chooseImageBtn;
 
+
     Spinner spin;
     String catName;
+
 
 
     @Override
@@ -81,10 +91,11 @@ public class UploadPhotoActivity extends AppCompatActivity implements AdapterVie
         imageView = findViewById(R.id.image_view);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
         uploadStatusTv = findViewById(R.id.upload_status_tv);
-
+        uploadDetails = findViewById(R.id.uploadFileDetails);
+        uploadName = findViewById(R.id.uploadFileDetailsName);
         chooseImageBtn = findViewById(R.id.button_choose_image);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("uploads");
+//        myRef = database.getReference("uploads");
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = database.getReference("uploads");
 
@@ -146,15 +157,72 @@ public class UploadPhotoActivity extends AppCompatActivity implements AdapterVie
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
     private void upload() {
-        if(mImageUri !=null) {
+        if(mImageFile !=null) {
             mProgressBar.setVisibility(View.VISIBLE);
-            StorageReference fileReference = mStorageRef.child(
-                    System.currentTimeMillis() + "." + getFileExtension(mImageUri));
-            fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
+
+//            final StorageReference imageRef = mStorageRef.child("images/"+
+//                    System.currentTimeMillis() + "." + getFileExtension(mImageFile));
+//            Log.d(TAG, "wtf am i saving = "+ imageRef);
+//
+//            FirebaseStorage storage = FirebaseStorage.getInstance();
+//            StorageReference storageRef = storage.getReferenceFromUrl("https://firebasestorage.googleapis.com/b/bucket/o/images"+imageRef.getPath());
+//            Log.d(TAG, "last try storage ref = "+ storageRef);
+//
+//            Log.d(TAG, "image url = "+ imageRef.getPath() + " and " + imageRef + imageRef.getDownloadUrl() + imageRef.getName());
+
+
+            //Uri file = Uri.fromFile(new File("https://firebasestorage.googleapis.com/v0/b/happy305-248321.appspot.com/o/uploads" ));
+            StorageReference riversRef = mStorageRef.child("images/"+System.currentTimeMillis() + "." + getFileExtension(mImageFile));
+            mUploadTask = riversRef.putFile(mImageFile).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()){
+                        throw task.getException();
+                    }
+                    Log.d("TAG", "oh shit" + riversRef.getDownloadUrl());
+
+
+                    return riversRef.getDownloadUrl();
+
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()){
+                        Uri downUri = task.getResult();
+
+                        Log.d(TAG, "onComplete: Url: "+ downUri.toString());
+                        String key = mDatabaseRef.child("uploads").push().getKey();
+
+
+                        PersonalPhoto personalPhoto = new PersonalPhoto(
+                                user.getUid(),
+                                mEditTextFileName.getText().toString().trim(),
+                                downUri.toString(),
+                                catName);
+
+                        Log.d("TAG","!!!this is it = " +  riversRef.getDownloadUrl());
+
+
+                        Map<String, Object> imageValues = personalPhoto.toMap();
+
+                        Map<String, Object> imageUpdates =new HashMap<>();
+
+                        imageUpdates.put("/user-images/" + user.getUid() +"/"+ key, imageValues);
+
+                        mDatabaseRef.updateChildren(imageUpdates);
+
+                        uploadDetails.setVisibility(View.INVISIBLE);
+                        uploadName.setVisibility(View.INVISIBLE);
+
+                        finish();
+                    }
+                }
+            })
+            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
@@ -163,43 +231,12 @@ public class UploadPhotoActivity extends AppCompatActivity implements AdapterVie
                                 }
                             }, 4000);
                             uploadStatusTv.setVisibility(View.VISIBLE);
-                            String key = mDatabaseRef.child("uploads").push().getKey();
 
-                            Category category = new Category(catName);
+                }
+            });
 
-                            PersonalPhoto personalPhoto = new PersonalPhoto(
-                                   category,
-                                    user.getUid(),user,
-                                    mEditTextFileName.getText().toString().trim(),
-                                    mStorageRef.getDownloadUrl().toString());
-
-                            String uploadId = myRef.push().getKey();
-
-                           myRef.child(uploadId).setValue(personalPhoto);
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(UploadPhotoActivity.this, "No file selected", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                            mProgressBar.setProgress((int) progress);
-
-                            finish();
-                        }
-                    });
-        }else{
-            uploadStatusTv.setText(getResources().getString(R.string.no_file_selected));
-            uploadStatusTv.setVisibility(View.VISIBLE);
-
-        }
     }
-
+    }
     private void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -213,9 +250,12 @@ public class UploadPhotoActivity extends AppCompatActivity implements AdapterVie
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
-            mImageUri = data.getData();
+            mImageFile = data.getData();
+            Log.d(TAG, "download url from Upload activity"+ mStorageRef.getDownloadUrl());
 
-            Picasso.get().load(mImageUri).into(imageView);
+            Picasso.get().load(mImageFile).into(imageView);
+
+
         }else{
             Log.d("UploadPhotoActivity", "Error with Result" + resultCode);
         }
